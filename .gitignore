@@ -1,0 +1,16 @@
+*.brf
+*.log
+*.out
+*.gz
+*.blg
+*.aux
+*.bbl
+*.pdf
+*.texnicle
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.dvi
+*.toc
+.DS_Store
