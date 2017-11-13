@@ -14,5 +14,5 @@
 *.dvi
 *.toc
 .DS_Store
-.vs_code
+.vscode
 .refresh

@@ -2,11 +2,10 @@
 \setlength{\tabcolsep}{6pt}
 \begin{table}
 \centering
-\begin{minipage}[b]{0.5\linewidth}
 \vspace{0pt}
 \centering
 \footnotesize
-\resizebox{0.85\linewidth}{!}{
+\resizebox{0.60\linewidth}{!}{
 \begin{tabular}{lcccc}
     \toprule
     \# Views     &  \textbf{1}     &  \textbf{2}     &  \textbf{3}     &  \textbf{4}    \\ \midrule
@@ -20,15 +19,14 @@
   \end{tabular}}
 \caption{Mean Voxel IoU on the ShapeNet test set. Note that the original 3D-R2N2 system does not use camera pose whereas the 3D-R2N2 w/pose system is trained with pose information. V-LSM w/bg refers to voxel LSM trained and tested with random images as backgrounds instead of white backgrounds only.}
 \tablelabel{voxel_iou}
-\end{minipage}
-\hfill
-\begin{minipage}[b]{0.45\linewidth}
+\end{table}
+
+
+\begin{figure}
 \vspace{0pt}
 \centering
-\includegraphics[width=\linewidth]{figures/lsm/gen2.pdf}
+\includegraphics[width=0.60\linewidth]{figures/lsm/gen2.pdf}
 \captionof{figure}{Generalization performance for V-LSM and 3D-R2N2 w/pose measured by gap in voxel IoU when tested on unseen object categories.}
 \figlabel{generalization}
-\end{minipage}
-%\vspace{-0.7cm}
-\end{table}
+\end{figure}
 

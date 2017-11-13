@@ -2,17 +2,28 @@
 \def\ssp{\def\baselinestretch{1.0}\large\normalsize}
 \ssp
 \usepackage{subfiles}
-\usepackage{hyperref}       % hyperlinks
+% \usepackage{hyperref}       % hyperlinks
+\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
 \usepackage{url}            % simple URL typesetting
 \usepackage{booktabs}       % professional-quality tables
 \usepackage{amsfonts}       % blackboard math symbols
+\usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{color}
+\usepackage{bm}
 \usepackage{graphicx}
 \usepackage{subfig}
 \usepackage{lib/libtex}
 \usepackage{textcomp}
-\usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage[labelfont=bf]{caption}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\algnewcommand{\Initialize}[1]{%
+  \State \textbf{Initialize:}
+  \Statex \parbox[t]{\linewidth}{\raggedright #1}
+}
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
 
 
 \pdfinfo{
@@ -122,10 +133,12 @@
 \begin{dissertationText}
 \chapter{Introduction}
 	\subfile{chapters/chapter1}
+
+\chapter[Amodal Completion]{Amodal Completion and Size Constancy in Natural Scenes}~\label{chapter:Amodal}
+	\subfile{chapters/amodal}
+
 \chapter{Learning a Multi-View Stereo Machine}~\label{chapter:LSM}
 	\subfile{chapters/lsm}
-\chapter[Short Title]{Long Title}
-	\subfile{chapters/chapter1}
 
 \ssp	% SINGLE SPACE REFERENCES (optional)
 \bibliographystyle{plain}
