@@ -2,7 +2,6 @@
 \def\ssp{\def\baselinestretch{1.0}\large\normalsize}
 \ssp
 \usepackage{subfiles}
-% \usepackage{hyperref}       % hyperlinks
 \usepackage[pagebackref=true,breaklinks=true,letterpaper=true,bookmarks=false]{hyperref}
 \usepackage{url}            % simple URL typesetting
 \usepackage{booktabs}       % professional-quality tables
@@ -18,6 +17,19 @@
 \usepackage[labelfont=bf,font=footnotesize]{caption}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+% \usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{epstopdf}
+\usepackage{balance}
+
+\let\svthefootnote\thefootnote
+\newcommand\blfootnote[1]{%
+\begingroup
+\let\thefootnote\relax\footnote{#1}
+\addtocounter{footnote}{-1}\let\thefootnote\svthefootnote
+\endgroup
+}
 
 \algnewcommand{\Initialize}[1]{%
   \State \textbf{Initialize:}
@@ -40,7 +52,7 @@
 % \include{chapters/preamble}
 
 % \graphicspath{{resources/}}
-
+\newcommand{\nrsfm}[0]{NRSfM }
 \newcommand\degrees{\ensuremath{^\circ}}
 \newcommand{\tab}{\hspace{5mm}}
 \newcommand{\blankpage}{\clearpage ~ \newpage}
@@ -134,20 +146,26 @@
 \chapter{Introduction}
 	\subfile{chapters/chapter1}
 
-\chapter[Amodal Completion]{Amodal Completion and Size Constancy in Natural Scenes}~\label{chapter:Amodal}
+\chapter{Category-Specific 3D Models}~\label{chapter:CategoryShapes}
+	\subfile{chapters/categoryshapes}
+
+\chapter{Amodal Completion and Size Constancy}~\label{chapter:Amodal}
 	\subfile{chapters/amodal}
 
-\chapter{Learning a Multi-View Stereo Machine}~\label{chapter:LSM}
+\chapter{Learnt Stereo Machines}~\label{chapter:LSM}
 	\subfile{chapters/lsm}
+	
+\chapter{Conclusion}
+	\subfile{chapters/chapter1}
 
-\ssp	% SINGLE SPACE REFERENCES (optional)
+\ssp
 \bibliographystyle{plain}
 \bibliography{references}
 
-% ------------------- OPTIONAL APPENDICES
-\appendix
-\chapter{Appendix Chapter}~\label{sec:appendix-pf}
-	\subfile{chapters/chapter1}
+% % ------------------- OPTIONAL APPENDICES
+% \appendix
+% \chapter{Appendix Chapter}~\label{sec:appendix-pf}
+% 	\subfile{chapters/chapter1}
 
 \end{dissertationText}
 \end{document}
