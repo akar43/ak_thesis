@@ -5,7 +5,7 @@
 *.blg
 *.aux
 *.bbl
-*.pdf
+thesis.pdf
 *.texnicle
 *.fdb_latexmk
 *.fls
