@@ -27,12 +27,12 @@
 
 An important component of the proposed reconstruction framework is the viewpoint estimation system \secref{viewpoints} which allows us to fit learned models to objects in new images. We evaluate this component under two settings -- viewpoint prediction accuracy when the object localization is known and a detection setting with unkown localization. We observe that our proposed approach significantly improves the state-of-the-art for viewpoint estimation in both these settings.
 
-\vspace{3mm}
-\noindent \textbf{Dataset.}
+
+\paragraph{Dataset.}
 Xiang \etal \cite{pascal3d} provide annotations for $(\phi,\varphi,\psi)$ corresponding to all the instances in the PASCAL VOC 2012 detection train, validation set as well as for ImageNet images. We use the PASCAL train set and the ImageNet annotations to train the CNN described in \secref{viewpoints} and use the PASCAL VOC 2012 validation set annotations to evaluate our performance. 
 
-\vspace{3mm}
-\noindent \textbf{Viewpoint Estimation with Ground Truth box.}
+
+\paragraph{Viewpoint Estimation with Ground Truth box.}
 To analyze the performance of our viewpoint estimation method independent of factors like mis-localization, we first tackle the task of estimating the viewpoint of an object with known bounds. Let $\Delta(R_1,R_2) = \frac{ \| log(R_1^TR_2)\|_F}{\sqrt{2}}$ denote the geodesic distance function over the manifold of rotation matrices. $\Delta(R_{gt},R_{pred})$ captures the difference between ground truth viewpoint $R_{gt}$ and predicted viewpoint $R_{pred}$. We use two complementary metrics for evaluation -
 \begin{itemize}
 \item \textbf{Median Error :} The common confusions for the task of viewpoint estimation often are predictions which are far apart (eg. left facing vs right facing car) and the median error ($MedErr$) is a widely use metric that is robust to these if a significant fraction of the estimates are accurate.
@@ -62,8 +62,8 @@ Recently, Ghodrati \etal \cite{ghodrati14viewpoint} achieved results comparable 
 \label{table:poseDetEval}
 \end{table}
 
-\vspace{3mm}
-\noindent \textbf{Viewpoint Estimation with Detection.}
+
+\paragraph{Viewpoint Estimation with Detection.}
 Xiang \etal \cite{pascal3d} introduced the $AVP$ metric to measure advances in the task of viewpoint estimation in the setting where localizations are not known a priori. The metric is similar to the $AP$ criterion used for PASCAL VOC detection except that each detection candidate has an associated viewpoint and the detection is labeled correct if it has a correct predicted viewpoint bin as well as a correct localization (bounding box IoU $>$ 0.5). Xiang \etal \cite{pascal3d} also compared to Pepik \etal \cite{pepik12dpm} on the AVP metric using various viewpoint bin sizes and Ghodrati \etal \cite{ghodrati14viewpoint} also showed comparable results on the metric. To evaluate our method, we obtain detections from RCNN \cite{rcnn} using MCG \cite{mcg2014} object proposals and augment them with a pose predicted using the corresponding detection's bounding box.
 
 We note that there are two issues with the $AVP$ metric - it only evaluates the prediction for the azimuth ($\phi$) angle and discretizes viewpoint instead of treating it continuously. Therefore, we also introduce two additional evaluation metrics which follow the IoU $>$ 0.5 criteria for localization but modify the criteria for assigning a viewpoint prediction to be correct as follows -
