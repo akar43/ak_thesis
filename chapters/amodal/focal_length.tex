@@ -14,8 +14,10 @@ Additionally, certain scenes tend to be pictured with preferred focal lengths. A
 
 Note that our goal is not high precision of the type that is necessary for high-fidelity reconstruction; we aim for a coarse estimate of the focal length that can be robustly computed from natural images. Our results in this section are a first demonstration that this may be feasible.
 
+\renewcommand{\arraystretch}{1.4}
 \begin{table}
 \centering
+\resizebox{0.5\linewidth}{!}{
  \begin{tabular}{ l  c  c c}
 \toprule
 \textbf{ConvNet} & \textbf{top-1} & \textbf{top-3} & \textbf{top-5} \\
@@ -27,7 +29,7 @@ AlexNet-Imagenet & 57.1  & 18.8 & 3.9 \\
 VGG-Deep16-Imagenet & 55.8 & 15.9 & 3.3 \\
 PlacesNet-Places & \textbf{54.3} & \textbf{15.3} & \textbf{3.1} \\
 \bottomrule
-  \end{tabular}
+  \end{tabular}}
     \caption{\tablelabel{focal_results}Focal length misclassification rate (top-1, top-3 and top-5 predictions) of networks pretrained on object images from Imagenet and the Places dataset. Lower is better.}
 \end{table}
 
@@ -36,7 +38,7 @@ PlacesNet-Places & \textbf{54.3} & \textbf{15.3} & \textbf{3.1} \\
 
 \begin{figure}
   \centering
-    \includegraphics[width=0.32\textwidth]{figures/amodal/highest4}
+  \includegraphics[width=0.32\textwidth]{figures/amodal/highest4}
   \includegraphics[width=0.32\textwidth]{figures/amodal/highest3}  
   \includegraphics[width=0.32\textwidth]{figures/amodal/highest6}  
   \includegraphics[width=0.32\textwidth]{figures/amodal/lowest1}

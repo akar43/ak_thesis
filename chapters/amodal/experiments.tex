@@ -8,11 +8,14 @@
 To test our amodal box predictor in a noisy setting, we apply it on bounding boxes predicted by the RCNN\cite{girshick2013rich} system from Girshick \etal. We assume a detection be correct if the RCNN bounding box has an IoU $> 0.5$ with the ground truth visible box \textit{and} the predicted amodal bounding box also has an IoU $> 0.5$ with the ground truth amodal box. We calculate the average precision for each class under the above definition of a ``correct'' detection and call it the Amodal $AP$ (or $AP^{am}$). \tableref{detectionTable} presents our $AP^{am}$ results on VOC2012 \textit{det-val}. As we can see again, the class agnostic and class specific systems perform very similarly. The notable improvement is only in a few classes (\eg diningtable and boat) where truncated/occluded instances dominate. Note that we do not rescore the RCNN detections using our amodal predictor and thus our performance is bounded by the detector performance. Moreover, the instances detected correctly by the detector tend to be cleaner ones and thus the baseline (\textit{modal bbox}) of using the detector box output as the amodal box also does reasonably well. Our RCNN detector is based on the VGG16 \cite{simonyan2014very} architecture and has a mean $AP$ of $57.0$ on the 12 rigid categories we consider.
 
 % Latent positives table
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{6pt}
 \begin{table}[htb!]
 \centering
+\resizebox{.5\linewidth}{!}{
 \begin{tabular}{ccccc}
 \toprule
-& \textbf{all} & \textbf{trun/occ} & \textbf{trunc} & \textbf{occ} \tabularnewline
+& \textbf{all} & \textbf{trunc/occ} & \textbf{trunc} & \textbf{occ} \tabularnewline
 \midrule
 
 \textbf{modal bbox} & 0.66 & 0.59 & 0.52 & 0.64 \tabularnewline
@@ -20,12 +23,13 @@ To test our amodal box predictor in a noisy setting, we apply it on bounding box
 \textbf{class agnostic} & 0.68 & 0.62 & 0.56 & 0.65 \tabularnewline
 
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \caption{Mean IoU of amodal boxes predicted from the visible bounding box on various subsets of the validation set in PASCAL VOC. Here \textit{occ} and \textit{trunc} refer to occluded and truncated instances respectively. The class specific and class agnostic methods refer to our variations of the training the amodal box regressors (see text for details) and modal bbox refers to the baseline of using the visible/modal bounding box itself as the predicted amodal bounding box.}
 \tablelabel{gtBboxTable}
 \end{table}
 
 % Detection table
+\renewcommand{\arraystretch}{1.4}
 \begin{table*}[htb!]
 \centering
 \resizebox{\linewidth}{!}{

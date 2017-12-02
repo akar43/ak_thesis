@@ -6,7 +6,7 @@ The main idea behind the algorithm is to exploit pairwise size relationships bet
 % Perspective projection figure
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{figures/amodal/Perspective.png}
+  \includegraphics[width=.9\textwidth]{figures/amodal/Perspective.png}
   \caption{\figlabel{perspective} Toy example illustrating our camera model and parameters. Please refer to the text for detailed explanations. }
 \end{figure}
 
@@ -80,9 +80,9 @@ This particular model is equivalent to solving a latent variable model where the
 
 Our image evidences in the above procedure include the ground support points and heights for all the objects in the image. Note that amodal bounding boxes for objects provide us exactly this information. They account for occlusions and truncations and give us an estimate of the full extent of the object in the image. The above algorithm with occluded/truncated visible bounding boxes would fail miserably and we use our amodal bounding box predictor to first ``complete'' the bounding boxes for us before using our size inference algorithm to infer object heights.
 
-\begin{figure}
+\begin{figure}[htb]
   \centering
-  \includegraphics[width=\textwidth]{figures/amodal/size_PascalVal_pred.png}
+  \includegraphics[width=.9\textwidth]{figures/amodal/size_PascalVal_pred.png}
   \caption{\figlabel{pascalSizes} Inferred log size distributions of 12 object categories on PASCAL VOC. We use our class agnostic amodal bounding box predictor to predict amodal boxes for all instances in VOC 2012 \textit{det-val} and use them with our object size estimation system to estimate size distributions for various categories. The plots above show distributions of the log size with the mean size being shown by the orange line.}
 \end{figure}
 
