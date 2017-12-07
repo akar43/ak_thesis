@@ -315,7 +315,7 @@ Committee in charge:
 
 \vspace{24pt}
 
- {\@degreemonth~\@degreeyear}
+{\@degreemonth~\@degreeyear}
 
 \end{center}
     \vfil\null
